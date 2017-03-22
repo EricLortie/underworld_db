@@ -12,10 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20170313005701) do
 
-  create_table "character_steps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "character_steps", force: :cascade do |t|
     t.string   "user_id"
+    t.string   "character_id"
+    t.string   "rulebook"
+    t.string   "category"
     t.integer  "step"
-    t.string   "character"
+    t.text     "character"
     t.string   "pc_class"
     t.string   "vocation"
     t.string   "occupation"
@@ -30,13 +36,13 @@ ActiveRecord::Schema.define(version: 20170313005701) do
     t.index ["id"], name: "index_character_steps_on_id", unique: true, using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "full_name"
     t.string   "password_digest"
     t.string   "token"
-    t.text     "description",     limit: 65535
+    t.text     "description"
     t.index ["token"], name: "index_users_on_token", unique: true, using: :btree
   end
 
