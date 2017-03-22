@@ -1,0 +1,60 @@
+<div class="row">
+
+  <div class="col-xs-12">
+    <h1 class="text-center">Interesting things are h<span id="thingie">a</span>ppening here.</h1>
+
+  </div>
+
+</div>
+<div id="content" class="row" style="display:none;">
+
+  <div class="col-xs-12">
+    <h3>Data and stuff for <%= @character_steps.length %> elements.</h3>
+    <table>
+      
+      <tr>
+        <th>ID</th>
+        <th>Category</th>
+        <th>Class</th>
+        <th>Race</th>
+        <th>Step</th>
+        <th>CP Spent</th>
+        <th>Skill Count</th>
+        <th>Skill</th>
+      </tr>
+
+      <%= @character_steps.each do |cs| %>
+
+        <tr>
+          <td><%= cs.character_id -%></td>
+          <td><%= cs.category -%></td>
+          <td><%= cs.pc_class -%></td>
+          <td><%= cs.race -%></td>
+          <td><%= cs.step -%></td>
+          <td><%= cs.cp_spent -%></td>
+          <td><%= cs.skill_count -%></td>
+          <td><%= cs.skill -%></td>
+        </tr>
+
+      <% end -%>
+
+    </table>
+
+
+  </div>
+
+</div>
+
+<script>
+  $(document).on('ready', function(){
+    $('#thingie').on('click', function(){ $('#content').show() });
+  });
+</script>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
