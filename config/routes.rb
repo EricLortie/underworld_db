@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'dashboards#index'
 
+  resources :dashboards, path: ''
+
   resources :dashboards
   resources :character_steps
 
