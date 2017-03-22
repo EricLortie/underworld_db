@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def validate_server
-    #Rails.logger.debug request.inspect
+    Rails.logger.debug request.domain.inspect
     head 403 and return unless request.domain == "localhost"
   end
 
